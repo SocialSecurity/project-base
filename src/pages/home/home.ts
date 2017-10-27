@@ -1,75 +1,282 @@
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  LatLng,
-  CameraPosition,
-  MarkerOptions,
-  Marker
-} from '@ionic-native/google-maps';
-import {
-  Component
-} from '@angular/core';
-import {
-  Platform,
-  NavController
-} from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from "@angular/core/";
+
+
+declare var google: any;
+declare var map: any;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
-  map: GoogleMap;
-  mapElement: HTMLElement;
-  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, public platform: Platform) {
-    // Wait the native plugin is ready.
-    platform.ready().then(() => {
-      this.loadMap();
-    });
+
+  @ViewChild('map') mapRef: ElementRef;
+  
+  constructor() {
+
   }
   ionViewDidLoad() {
-    this.loadMap();
+    this.showMap();
   }
 
-  loadMap() {
-    this.mapElement = document.getElementById('map');
-
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 43.0741904,
-          lng: -89.3809802
+  showMap() {
+    const location = new google.maps.LatLng(51.507351,
+      -0.127758);
+    const options = {
+      center: location,
+      zoom:10,
+      mapTypeId: 'roadmap',
+      styles:[
+        {
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#212121"
+            }
+          ]
         },
-        zoom: 18,
-        tilt: 30
-      }
+        {
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#212121"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.country",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#9e9e9e"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.land_parcel",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.locality",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#bdbdbd"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.neighborhood",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.medical",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#181818"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#23592c"
+            },
+            {
+              "saturation": -45
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#1b1b1b"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#2c2c2c"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#8a8a8a"
+            }
+          ]
+        },
+        {
+          "featureType": "road.arterial",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#373737"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#3c3c3c"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#4e4e4e"
+            }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#000000"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#241469"
+            },
+            {
+              "saturation": 10
+            },
+            {
+              "lightness": -65
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#3d3d3d"
+            }
+          ]
+        }
+      ]
+      
     };
 
-    this.map = new GoogleMap(this.mapElement, mapOptions);
-    // Wait the MAP_READY before using any methods.
-    this.map.one(GoogleMapsEvent.MAP_READY)
-      .then(() => {
-        console.log('Map is ready!');
-
-        // Now you can use all methods safely.
-        this.map.addMarker({
-            title: 'Ionic',
-            icon: 'blue',
-            animation: 'DROP',
-            position: {
-              lat: 43.0741904,
-              lng: -89.3809802
-            }
-          })
-          .then(marker => {
-            marker.on(GoogleMapsEvent.MARKER_CLICK)
-              .subscribe(() => {
-                alert('clicked');
-              });
-          });
-
-      });
+    const map = new google.maps.Map(this.mapRef.nativeElement,
+    options);
+    this.addMarker(location, map);
   }
+
+  addMarker(position, map){
+    return new google.maps.Marker({
+      position,
+      map,
+    })
+  }
+
 }

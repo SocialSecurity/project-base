@@ -12,7 +12,7 @@ import { IntroPage } from '../pages/intro/intro';
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = IntroPage;
+  rootPage = TabsPage;
   
   constructor(
     platform: Platform, 

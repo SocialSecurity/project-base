@@ -1,0 +1,32 @@
+page-login {
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;    
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient( #141e30, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient( #141e30, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .content .inputs .list{
+    border: none;
+  }
+  .content .inputs .list .item, 
+  .content .inputs .list .item-inner{
+    background: transparent;
+    border: none;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner,
+  .item-md.item-input.input-has-focus .item-inner {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .list-md .item-input.item-input-has-focus:last-child,
+  .list-md .item-input.input-has-focus:last-child {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+}

@@ -27,12 +27,12 @@ export class FeedPage {
   }
 
   ionViewDidLoad() {
-    this.movitProvider.getMovies().subscribe(
+    this.movitProvider.getLikes().subscribe(
       data => {
         const response = (data as any);
-        
         const object_return = JSON.parse(response._body)
-        this.list_movies = object_return.results;
+        console.log(object_return.posts.data[1].likes.data);
+        this.list_movies = object_return.posts.data[1].likes.data;
       },
       error => {
 

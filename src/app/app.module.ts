@@ -10,12 +10,16 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { IntroPage } from '../pages/intro/intro';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+import { BeforeLoginPage } from '../pages/before-login/before-login';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FeedPageModule } from '../pages/feed/feed.module';
 import {GoogleMaps} from '@ionic-native/google-maps';
 import { MovieProvider } from '../providers/movie/movie';
+import { UsersProvider } from '../providers/users/users';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { MovieProvider } from '../providers/movie/movie';
     HomePage,
     TabsPage,
     IntroPage,
+    LoginPage,
+    BeforeLoginPage,
   ],
   imports: [
     BrowserModule,
@@ -39,14 +45,17 @@ import { MovieProvider } from '../providers/movie/movie';
     ContactPage,
     HomePage,
     TabsPage,
-    IntroPage
+    IntroPage,
+    LoginPage,
+    BeforeLoginPage,
   ],
   providers: [
     StatusBar,
     GoogleMaps,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieProvider
+    MovieProvider,
+    UsersProvider
   ]
 })
 export class AppModule {}

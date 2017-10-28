@@ -1,0 +1,29 @@
+page-before-login {
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;    
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient( #141e30, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient( #141e30, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+  }
+  .content a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .content .btns{
+    text-align: center;
+  }
+  .content .btns button{
+    background: rgba(255,255,255,.1);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+    color: #fff;
+    border: none;
+    width: 70%;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+    
+  }
+}

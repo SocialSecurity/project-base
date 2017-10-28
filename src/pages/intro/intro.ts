@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { BeforeLoginPage } from '../before-login/before-login';
 
 /**
  * Generated class for the IntroPage page.
@@ -25,8 +25,8 @@ export class IntroPage {
     console.log('ionViewDidLoad IntroPage');
   }
 
-  public toTabsPage():void {
-    this.navCtrl.push(TabsPage)
+  public toBeforePage():void {
+    this.navCtrl.push(BeforeLoginPage)
   }
 
 }

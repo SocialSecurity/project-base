@@ -1,6 +1,18 @@
 page-home {
-    .gmnoprint{
-        display: none;
-    }
+  .gmnoprint {
+    display: none;
+  }
+  .chip {
+    position: absolute !important;
+    background: #fff;
+    left: 10px;
+    color: #141e30;
+    z-index: 9999999999;
+  }
+  .chip-md {
+    top: 5%;
+  }
+  .chip-ios {
+    top: 8%;
+  }
 }
-

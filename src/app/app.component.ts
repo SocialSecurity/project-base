@@ -6,13 +6,14 @@ import { ConfigProvider } from '../providers/config/config';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage } from '../pages/intro/intro';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = IntroPage;
   
   constructor(
     platform: Platform, 

@@ -6,10 +6,10 @@
 -->
 <ion-content padding>
   <ion-card class="ion-card" *ngFor="let movie of list_movies">
-    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path">
+    <img src="{{movie.pic_large}}">
     <ion-item> 
       <ion-icon name="ios-bookmark-outline" item-start large></ion-icon>
-      <h2>{{movie.original_title}}</h2>
+      <h2>{{movie.name}}</h2>
       <p>{{movie.overview}}</p>
     </ion-item>
     <ion-item>

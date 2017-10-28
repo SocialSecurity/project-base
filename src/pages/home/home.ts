@@ -1,25 +1,17 @@
 import { Component, ViewChild, ElementRef } from "@angular/core/";
-
-
 declare var google: any;
 declare var map: any;
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-
 export class HomePage {
-
   @ViewChild('map') mapRef: ElementRef;
-  
   constructor() {
-
   }
   ionViewDidLoad() {
     this.showMap();
   }
-
   showMap() {
     const location = new google.maps.LatLng(51.507351,
       -0.127758);

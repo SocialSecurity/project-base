@@ -1,13 +1,29 @@
 page-intro {
-    .item_slide{
-        }
-        .item_slide img{
-         padding:20px;
-        }
-        .item_slide h2,
-        .item_slide h2 a{
-            color: rgb(44,62,80);
-            font-weight: bold;
-        }
-      
+  .content {
+    justify-content: space-between !important;
+  }
+  .content .pager {
+    flex: 1;
+  }
+  .item_slide {}
+  .item_slide img {
+    padding: 20px;
+  }
+  .item_slide h2,
+  .item_slide h2 a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+  .content .btn-skip {
+    text-align: right;
+  }
+  .ion-ios-arrow-dropright-circle {
+    color: #fff;
+    font-size: 30px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff;
+    opacity: 1;
+  }
+
 }

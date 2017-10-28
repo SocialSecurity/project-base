@@ -31,11 +31,12 @@ export class FeedPage {
       data => {
         const response = (data as any);
         const object_return = JSON.parse(response._body)
-        console.log(object_return.posts.data[1].likes.data);
-        this.list_movies = object_return.posts.data[1].likes.data;
+        console.log(object_return.posts.data);
+        this.list_movies = object_return.posts.data[3].likes.data;
       },
       error => {
-
+        console.log(error);
+        
       })
   }
 }

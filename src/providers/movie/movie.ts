@@ -12,13 +12,13 @@ import 'rxjs/add/operator/map';
 
 export class MovieProvider {
   private urlBase = 'https://graph.facebook.com/v2.10/';
-  private api_key = '&access_token=EAACEdEose0cBAL8gTiQrP8r66ZAjNb3w1uGcLpsNhDMg5OpZBCKvLMlllQyXPD17iX95Ip0cqmnMJKXXlzSWG29JZCtI45ifrZBp13qYkbLNCieSk5hR6hhyOuLMWk0moGg6iaZB9mpRpsMltePnxuJfCFD36ypfiE5yIiczKZAR00v07oTB5W5nIOnrw0uEpxtN7LJSLAC6HneXaXKZARIneLkBLoY05k6WBZBcSl0zlAZDZD';
+  private api_key = '&access_token=EAACEdEose0cBAB0kCmHNAeg6dpz6dH37f5ZBTZBkR1iURXEaSjvPidydlfqkuyboZBxBHccxsJnyaatWMqVtOztU59KDqnZCgyOyt9tm9EIGTsFHGVhhlqByWvRyXmhp0Lg5r71qINIYWAZA6gcrZAZAXOxDeDuR1FZBM0z1r7MAgLLL3tormKVqtShy9AhUZA5ZBq1JEEKzs3QgZDZD';
   constructor(public http: Http) {
-    console.log('Hello MovieProvider Provider');
+
   }
 
   getLikes(){
-    let result = this.http.get(this.urlBase+'flowupgestao?fields=posts.limit(2){likes{name,pic_large}}'+this.api_key);
+    let result = this.http.get(this.urlBase+'flowupgestao?fields=posts.limit(4){likes{name,pic_large}}'+this.api_key);
     return result }
 
 }

@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BeforeLoginPage } from '../before-login/before-login';
-
+import { StatusBar } from '@ionic-native/status-bar';
 /**
- * Generated class for the IntroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+  USAR STATUS BAR 
  */
 
 @IonicPage()
@@ -17,15 +14,20 @@ import { BeforeLoginPage } from '../before-login/before-login';
 export class IntroPage {
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private statusBar: StatusBar) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IntroPage');
+    // testes
+    // this.statusBar.overlaysWebView(true);
+    // this.statusBar.backgroundColorByHexString('#ff0000');
+    // this.statusBar.hide();
   }
 
-  public toBeforePage():void {
+
+  public toBeforePage(): void {
     this.navCtrl.push(BeforeLoginPage)
   }
 

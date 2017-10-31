@@ -20,6 +20,7 @@ import { FeedPageModule } from '../pages/feed/feed.module';
 import {GoogleMaps} from '@ionic-native/google-maps';
 import { MovieProvider } from '../providers/movie/movie';
 import { UsersProvider } from '../providers/users/users';
+import { MapsProvider } from '../providers/maps/maps';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UsersProvider } from '../providers/users/users';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieProvider,
-    UsersProvider
+    UsersProvider,
+    MapsProvider
   ]
 })
 export class AppModule {}

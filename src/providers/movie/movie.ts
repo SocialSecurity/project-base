@@ -22,3 +22,4 @@ export class MovieProvider {
     return result }
 
 }
+ 

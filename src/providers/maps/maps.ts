@@ -803,7 +803,6 @@ export class MapsProvider {
     var heatmap = new google.maps.visualization.HeatmapLayer({
       data: heatmapData,
       dissipating: true,
-
       map: map
     });
     // var gradient = [

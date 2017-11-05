@@ -283,7 +283,7 @@ export class MapsProvider {
         }
       ]
     };
-  
+    
     // Create a <script> tag and set the USGS URL as the source.
     var script = document.createElement('script');
 

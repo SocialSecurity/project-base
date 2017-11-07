@@ -6,7 +6,10 @@
     <ion-label>Entrar</ion-label>
   </ion-chip>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
-  <google-map (mapClick)="onMapClick($event)" (mapReady)="onMapReady($event)" [options]="options"></google-map>
+  <google-map (mapClick)="onMapClick($event)" (mapReady)="onMapReady($event)" [options]="options">
+
+    <span class="smallPanel" id="label"></span>
+  </google-map>
 </ion-content>
 
 <ion-menu [content]="content">

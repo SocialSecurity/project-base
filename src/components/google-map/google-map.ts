@@ -1,7 +1,7 @@
 import { Component, Input, Renderer, OnInit, ElementRef, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { Platform } from "ionic-angular";
 import {
-  GoogleMap, GoogleMapsEvent, GoogleMaps, LatLng, GoogleMapOptions,
+  GoogleMap, GoogleMapsEvent, HtmlInfoWindow, GoogleMaps, LatLng, GoogleMapOptions,
 } from "@ionic-native/google-maps";
 declare var google: any;
 
@@ -830,33 +830,22 @@ export class GoogleMapComponent implements AfterViewInit {
           });
         });
         // Add Cluster Marker
-      
         var label = document.getElementById("label");
         this.map.addMarkerCluster({
-          maxZoomLevel: 4,
           boundsDraw: true,
           markers: dummyData(),
           icons: [
-              {min: 2, max: 100, url: "Bpreta.jpeg", anchor: {x: 16, y: 16}}
+              {min: 2, max: 10, url: "assets/icon/blue.png", anchor: {x: 16, y: 16}},
+              {min: 10, max: 20, url: "assets/icon/yellow.png", anchor: {x: 16, y: 16}},
+              {min: 20, max: 60, url: "assets/icon/red.png", anchor: {x: 24, y: 24}},
+              {min: 60, url: "assets/icon/black.png",anchor: {x: 32,y: 32}}
           ]
-        }).then (
-         (markerCluster) => {
-      
-            //-----------------------------------------------------------------------
-            // Display the resolution (in order to understand the marker cluster)
-            //-----------------------------------------------------------------------
+        }).then ((markerCluster) => {
             markerCluster.on("resolution_changed", function (prev, newResolution) {
                 var self = this;
                 label.innerHTML = "&lt;b&gt;zoom = " + self.get("zoom").toFixed(0) + ", resolution = " + self.get("resolution") + "&lt;/b&gt;";
             });
             markerCluster.trigger("resolution_changed");
-      
-            //------------------------------------
-            // If you tap on a marker,
-            // you can get the marker instnace.
-            // Then you can do what ever you want.
-            //------------------------------------
-      
         });
         function dummyData() {
           return [
@@ -1440,9 +1429,6 @@ export class GoogleMapComponent implements AfterViewInit {
             }
           ];
         }
-      
-      
-        
         // Add circle
         // for (var i = 0; i < this.heatmapData.length; i++) {
         //   this.map.addCircle({
